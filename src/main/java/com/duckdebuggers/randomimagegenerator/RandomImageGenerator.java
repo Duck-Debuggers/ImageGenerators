@@ -1,7 +1,7 @@
 package com.duckdebuggers.randomimagegenerator;
 
-/**
- * Created by stjjensen1 on 4/6/2016.
- */
-public class RandomImageGenerator {
+import java.awt.*;
+
+public abstract class RandomImageGenerator {
+    public abstract Color[][] draw(int height, int width);
 }

@@ -1,0 +1,16 @@
+package com.duckdebuggers.randomimagegenerator;
+
+import java.awt.*;
+
+public class RandomPixelGenerator extends RandomImageGenerator {
+    @Override
+    public Color[][] draw(int height, int width) {
+        Color[][] grid = new Color[height][width];
+        for (Color[] row : grid) {
+            for (int i = 0; i < row.length; i++) {
+                row[i] = new Color((int) (Math.random() * 256), (int) (Math.random() * 256), (int) (Math.random() * 256));
+            }
+        }
+        return grid;
+    }
+}
