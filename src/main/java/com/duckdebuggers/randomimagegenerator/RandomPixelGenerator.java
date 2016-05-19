@@ -5,7 +5,7 @@ import java.awt.*;
 public class RandomPixelGenerator extends RandomImageGenerator {
 
     public RandomPixelGenerator(int width, int height) {
-        super(width, height);
+        super();
     }
 
     @Override

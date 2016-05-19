@@ -7,7 +7,7 @@ import java.awt.*;
  */
 public class RandomPolyGenerator extends RandomImageGenerator {
     public RandomPolyGenerator(int width, int height) {
-        super(width,height);
+        super();
     }
 
     @Override
