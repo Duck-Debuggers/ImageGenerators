@@ -4,10 +4,6 @@ import java.awt.*;
 
 public class RandomPixelGenerator extends RandomImageGenerator {
 
-    public RandomPixelGenerator(int width, int height) {
-        super();
-    }
-
     @Override
     public Color[][] draw(int width, int height) {
         Color[][] grid = new Color[height][width];
