@@ -2,6 +2,7 @@ package com.duckdebuggers.randomimagegenerator.main;
 
 import com.duckdebuggers.randomimagegenerator.RandomImageGenerator;
 import com.duckdebuggers.randomimagegenerator.RandomPixelGenerator;
+import com.duckdebuggers.randomimagegenerator.RandomPolyGenerator;
 
 import javax.swing.*;
 import java.applet.Applet;
@@ -11,7 +12,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 
 /**
  * Created by stmsalah1 on 4/6/2016.
@@ -19,10 +19,10 @@ import java.awt.image.ImageObserver;
 public class Main extends Applet {
     // Configurable Constants //
     private static final String TITLE = "Random Image Generation (Press F5 to refresh)";
-    private static final int WIDTH = 400;
-    private static final int HEIGHT = 400;
+    private static final int WIDTH = 300;
+    private static final int HEIGHT = 300;
 
-    private static RandomImageGenerator pixelGenerator = new RandomPixelGenerator(WIDTH, HEIGHT);
+    private static RandomImageGenerator pixelGenerator = new RandomPolyGenerator();
     private static CanvasPanel canvas = new CanvasPanel(WIDTH, HEIGHT);
     private static KeyAdapter keyAdapter = new KeyAdapter() {
         @Override
@@ -66,15 +66,15 @@ public class Main extends Applet {
         }
 
         void setColorGrid(Color[][] colorGrid) {
-            for (int x = 0; x < colorGrid.length; x++) {
-                for (int y = 0; y < colorGrid[x].length; y++) {
-                    canvas.setRGB(x, y, colorGrid[x][y].getRGB());
+            for (int y = 0; y < colorGrid.length; y++) {
+                for (int x = 0; x < colorGrid[y].length; x++) {
+                    canvas.setRGB(x, y, colorGrid[y][x].getRGB());
                 }
             }
         }
 
         @Override
-        protected void paintComponent(Graphics graphics) {
+        public void paint(Graphics graphics) {
             super.paintComponent(graphics);
             ((Graphics2D) graphics).drawImage(canvas, null, null);
         }
@@ -89,8 +89,8 @@ public class Main extends Applet {
         CanvasPanel drawPanel = new CanvasPanel(WIDTH, HEIGHT);
         BufferedImage canvas = drawPanel.canvas;
 
-        RandomImageGenerator generator = new RandomPixelGenerator(400, 400);
-        Color[][] image = generator.draw(300, 300);
+        RandomImageGenerator generator = new RandomPixelGenerator();
+        Color[][] image = generator.draw(WIDTH, HEIGHT);
 
         for (int i = 0; i < image.length; i++) {
             for (int j = 0; j < image[i].length; j++) {
