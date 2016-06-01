@@ -36,6 +36,11 @@ public class Main extends Applet {
         }
     };
 
+    public Main(RandomImageGenerator generator) {
+        this.pixelGenerator = generator;
+        main(null);
+    }
+
     public static void main(String[] args) {
         canvas.setColorGrid(pixelGenerator.draw(WIDTH, HEIGHT));
         Frame frame = new Frame();

@@ -10,7 +10,7 @@ import java.util.List;
 public class RandomPolyGenerator extends RandomImageGenerator {
 
     public Coords[] generatePoints(int width, int height) {
-        int number = 15;
+        int number = 9;
         Coords[] points = new Coords[number];
         for (int i = 0; i < number; i++) {
             points[i] = new Coords((int) (Math.random() * width), (int) (Math.random() * height));
